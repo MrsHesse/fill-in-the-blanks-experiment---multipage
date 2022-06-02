@@ -3,6 +3,26 @@ body{
   font-size:1.2rem;
 }
 
+.page-container{
+  margin-left:20px;
+  margin-right:20px;
+  
+}
+
+#fillin-container,
+#instructions-container{
+  border-style :solid;
+  border-color:#ddd;
+  border-width:2px;
+  padding-left:20px;
+  padding-right:20px;
+  margin-bottom:10px;  
+  border-radius:5px;
+
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+}
+
+
 .fillin{
   text-align:center;
   width:8rem;
@@ -34,4 +54,19 @@ body{
    background:#c14; 
    //text-decoration: line-through;
    //text-decoration-color:#555;
+}
+
+.pagenav-container button{
+  text-align:center;
+  margin:5px;
+  border-radius:5px;
+  font-size:inherit;
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
+
+}
+
+.pagenav-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
 }

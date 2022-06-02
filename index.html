@@ -3,37 +3,38 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>replit</title>
+    <title>Fill in the blanks</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+   
   </head>
   <body>
-    <h2>Networks</h2>
-    <p>
-    A network allows <input type="text"class="fillin" data="computers" autofocus > and devices to <input type="text" class="fillin" data="communicate"  and share resources with one another.
-    </p>
-
-    <h2>HTML</h2>
-    <p>
-      &lt <input type="text"class="fillin" data="p"> &gt This is a paragraph 
-      &lt <input type="text"class="fillin" data="&#47p"> &gt 
-    </p>
-    
-    <p>
-      &lt <input type="text"class="fillin" data="b"> &gt <b>this text is bold</b>
-      &lt <input type="text"class="fillin" data="&#47b"> &gt 
-    </p>
-    
-    <p>
-      &lt <input type="text"class="fillin" data="i"> &gt <i>this text is italic</i>
-      &lt <input type="text"class="fillin" data="&#47i"> &gt 
-    </p>
-    
-    <p>
-      &lt b &gt 
-      &lt <input type="text"class="fillin" data="i"> &gt <b><i>this text is bold and italic</i></b>
-      &lt <input type="text"class="fillin" data="&#47i"> &gt&lt <input type="text"class="fillin" data="&#47b"> &gt 
-    </p>
-    
+    <div class="page-container">
+        <div id="instructions-container">
+          <!-- The instructions are displayed if provided -->
+        </div>
+        <div id="fillin-container">
+          
+        </div>
+        <!-- The fill in the blank code will be created automatically
+             from the input string -->
+        <div class="pagenav-container">
+          <div>
+            <button id="before"><span class="material-symbols-outlined">navigate_before</span></button>
+          </div>
+          
+           <div id="feedback-container">
+            <!-- The feedback button is added if the feedback 
+              type is set to "end"-->
+          </div>
+        
+          <div>
+            <button id="after"> <span class="material-symbols-outlined">navigate_next</span></button></td>
+          </div>
+        </div>
+     
+    </div>
+    <script src="pages.js"></script>
     <script src="script.js"></script>
 
   </body>
