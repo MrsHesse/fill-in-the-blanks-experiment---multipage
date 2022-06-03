@@ -4,6 +4,7 @@
 //var feedback = "end";
 
 initialisePageNavigation();
+initialisePageHints();
 createPageHTML();
 
 
@@ -14,11 +15,14 @@ function createPageHTML()
   var instructions = pages[currentpage].instructions;
   var inputstrs = pages[currentpage].inputstrings;
   var title = pages[currentpage].title;
+  var hints = pages[currentpage].hints;
+  
   
   addInstructions(instructions);
   addFillins(inputstrs, feedback);
   addFeedbackButton(feedback);
   addTitle(title);
+  addHints(hints);
 }
   
 
@@ -40,6 +44,13 @@ function generateFillin(spec, containerelem){
   const fillinp  = document.createElement('p');
   fillin.appendChild(fillinp);
 
+  // if the first item is text starting with a space the add 
+  // padding to the paragraph
+  if (spec[0].type=="text" && spec[0].text[0]==" "){
+    fillin.style.paddingLeft="40px";
+  } else {
+    fillin.style.paddingLeft="";
+  }
   spec.forEach(specitem => {
     if (specitem.type=="text"){
       let textNode = document.createTextNode(specitem.text); 
@@ -340,3 +351,62 @@ function prevPage(){
     console.log("prevPage() ->", currentpage)
     
 }
+
+function initialisePageHints(){
+  var hintdiv = document.getElementById("hint-container");
+
+  hintdiv.addEventListener("click", toggleHints);
+}
+
+function toggleHints(){
+  var hinton = document.getElementById("hinton");
+  var hintoff = document.getElementById("hintoff");
+
+  hinton.classList.toggle("hide");
+  hintoff.classList.toggle("hide");
+  
+  
+}
+
+function addHints(hints){
+  var hintdiv = document.getElementById("hint-container");
+    
+  if(hints){
+    // if hints exist for this page then display the container
+    
+    // update the hintoff and hinton messages
+    var hinton = document.getElementById("hinton");
+    var hintoff = document.getElementById("hintoff");
+
+    hinton.innerHTML = `<p>${hints}</p>`;
+    hinton.classList.add("hide");
+    //hinton.classList.remove("show");
+    
+    hintoff.innerHTML = `<p>click here to show hints</p>`;
+    hintoff.classList.remove("hide");
+    //hintoff.classList.add("show");
+    
+    // show the hints container
+    hintdiv.classList.remove("hide");
+    //hintdiv.classList.add("show");
+
+    // add the click event handler to toggle between
+    // the hints showing or not
+    hintdiv.addEventListener("click", toggleHints);
+
+    hintdiv.style.flex="25%";
+    document.getElementById("fillin-container").style.flex = "75%";
+    
+  } else {
+    // otherwise hide the container
+    hintdiv.classList.add("hide");
+    //hintdiv.classList.remove("show");
+
+    hintdiv.removeEventListener("click", toggleHints);
+
+    hintdiv.style.flex="0";
+    document.getElementById("fillin-container").style.flex = "100%";
+    
+  }
+}
+

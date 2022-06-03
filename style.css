@@ -8,7 +8,14 @@ body{
   margin-right:20px;
   
 }
+#problem-container{
+   display: flex;
+  justify-content: space-between;
 
+  
+}
+
+#hint-container,
 #fillin-container,
 #instructions-container{
   border-style :solid;
@@ -22,6 +29,13 @@ body{
   box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
 }
 
+#fillin-container{
+    flex: 75%;
+}
+#hint-container{
+    margin-left:20px;
+    flex:25%;
+}
 
 .fillin{
   text-align:center;
@@ -69,4 +83,22 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;  
+}
+
+#hintoff{
+  /*background:rgba(128,0,128,0.5);*/
+  font-style:italic;
+  font-size:2em;
+}
+  
+#hinton{
+  /*background:rgba(0,128,128,0.5);*/
+}
+
+.hide{
+  display: none;
+}
+
+.show{
+  display: block;
 }
